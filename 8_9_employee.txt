@@ -1,0 +1,52 @@
+1. For the following relation schema:
+employee(employee-name, street, city)
+works(employee-name, company-name, salary)
+company(company-name, city)
+manages(employee-name, manager-name)
+
+Give an expression in SQL for each of the following queries:
+
+1) Find the names, street address, and cities of residence for all employees who work for
+'same corporation' and earn more than $10,000.
+
+select employee.employee-name, employee.street , employee.city from
+employee, works
+wher e employee.employee-name = works.employee-name and salary > 10000
+Group by company-name
+
+2) Find the names of all employees in the database who live in the same cities as the
+companies for which they work.
+
+select e.employee-name
+from employee e, works w, company c
+where e.employee-name = w.employee-name and e.city = c.cit y
+ and w.company-name = c.company-name
+
+3) Find the names of all employees who earn more than the average salary of all
+employees of their company. Assume that all people work for at most one company.
+
+select employee-name
+from works t
+wher e salary >(select avg(salary) from works s
+ where t .company-name = s.company-name)
+
+Exp 9 ----------------------------------------------------------------------------------------
+1) Find the name of the company that has the smallest payroll.
+select company-name
+
+from works
+group by company-name
+having sum(salary) <= all (select sum(salary)
+ from works
+ group by company-name)
+
+2) Find the names of all employees in the database who live in the same cities and on the
+same streets as do their managers.
+
+select p.employee-name
+from employee p, employee r , manages m
+where p.employee-name = m.employee-name and m.manager -name =
+r.employee-name
+ and p.street = r.street and p.city = r.city
+
+

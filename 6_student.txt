@@ -1,0 +1,68 @@
+mysql> create database ddl;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> use ddl;
+Database changed
+mysql> create table student(rollno int(10), name varchar(30), class varchar(10), gender varchar(8),age int(2));
+Query OK, 0 rows affected, 2 warnings (0.34 sec)
+
+mysql> select * from student;
+Empty set (0.06 sec)
+
+mysql> insert into student values(90 , Prathamesh , T.E , Male , 20);
+ERROR 1054 (42S22): Unknown column 'Prathamesh' in 'field list'
+mysql> insert into student values(90 , 'Prathamesh' , 'T.E' , 'Male' , 20);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into student values(73 , 'Anish' , 'T.E' , 'Male' , 19);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from student;
++--------+------------+-------+--------+------+
+| rollno | name       | class | gender | age  |
++--------+------------+-------+--------+------+
+|     90 | Prathamesh | T.E   | Male   |   20 |
+|     73 | Anish      | T.E   | Male   |   19 |
++--------+------------+-------+--------+------+
+2 rows in set (0.01 sec)
+
+mysql> alter table student add marks int(3);
+Query OK, 0 rows affected, 1 warning (0.19 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select * from student;
++--------+------------+-------+--------+------+-------+
+| rollno | name       | class | gender | age  | marks |
++--------+------------+-------+--------+------+-------+
+|     90 | Prathamesh | T.E   | Male   |   20 |  NULL |
+|     73 | Anish      | T.E   | Male   |   19 |  NULL |
++--------+------------+-------+--------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table student modify column gender char(1);
+ERROR 1406 (22001): Data too long for column 'gender' at row 1
+mysql> alter table student modify column gender char(6);
+Query OK, 2 rows affected (0.09 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++--------+------------+-------+--------+------+-------+
+| rollno | name       | class | gender | age  | marks |
++--------+------------+-------+--------+------+-------+
+|     90 | Prathamesh | T.E   | Male   |   20 |  NULL |
+|     73 | Anish      | T.E   | Male   |   19 |  NULL |
++--------+------------+-------+--------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table student drop marks;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++--------+------------+-------+--------+------+
+| rollno | name       | class | gender | age  |
++--------+------------+-------+--------+------+
+|     90 | Prathamesh | T.E   | Male   |   20 |
+|     73 | Anish      | T.E   | Male   |   19 |
++--------+------------+-------+--------+------+
+2 rows in set (0.00 sec)
