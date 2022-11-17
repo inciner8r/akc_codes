@@ -1,0 +1,56 @@
+A2-A
+a. Design and Develop SQL DDL statements which demonstrate the use of SQL
+objects such as Table, View, Index, Sequence, Synonym, different constraints etc.
+A2-B. Write at least 10 SQL queries on the suitable database application using SQL DML
+statements.
+A3
+SQL queries all types join sub queries and view
+A4
+Consider Tables:
+1. Borrower (Roll_no, Name, DateofIssue, NameofBook, Status)
+2. Fine (Roll_no, Date, Amt)
+Accept Roll_no & NameofBook from user.
+ Check the number of days (from date of issue),
+ If days are between 15 to 30 then fine amount will be Rs 5per day.
+ If no. of days>30, per day fine will be Rs 50 per day & for days less than 30,
+Rs. 5 per day.
+ After submitting the book, status will change from I to R.
+ If condition of fine is true, then details will be stored into fine table.
+ Also handles the exception by named exception handler or user define
+exception handler.
+A5
+Write a PL/SQL code block to calculate the area of a circle for a value of radius
+varying from 5 to 9. Store the radius and the corresponding values of calculated area
+in an empty table named areas, consisting of two columns, radius and area.
+A6
+Write a Stored Procedure namely proc_Grade for the categorization of student.
+If marks scored by students in examination is <=1500 and marks>=990 then student
+will be placed in distinction category if marks scored are between 989 and 900
+category is first class, if marks 899 and 825 category is Higher Second Class
+Write a PL/SQL block to use procedure created with above requirement.
+Stud_Marks(name, total_marks)
+ Result(Roll,Name, Class)
+ A7
+ Write a PL/SQL block of code using parameterized Cursor that will merge the
+data available in the newly created table N_RollCall with the data available in the
+table O_RollCall. If the data in the first table already exist in the second table then
+that data should be skipped.
+A8
+Write a database trigger on Library table. The System should keep track of the
+records that are being updated or deleted. The old value of updated or deleted
+records shouldbe added in Library_Audit table.
+A9
+ Write a program to implement MYSQL/Oracle database connectivity with any
+front end language to implement Database navigation operations (add, delete, edit
+etc).
+B1
+Design and Develop MongoDB Queries using CRUD operations. (Use CRUD
+operations, SAVE method, logical operators etc)
+B2
+Design and Develop MongoDB Queries using aggregation and indexing with
+suitable example using MongoDB.
+B3
+Implement Map reduces operation with suitable example using MongoDB.
+B4
+Write a program to implement MongoDB database connectivity with any front
+end language to implement Database navigation operations (add, delete, edit etc)
